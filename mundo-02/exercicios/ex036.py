@@ -18,5 +18,6 @@ anos = financiamento * 12
 prestacao = valorImovel / anos
 if prestacao > salario * 30 / 100:
     print("Empréstimo NEGADO.")
+    print(f'As parcelas ficaram R${prestacao:.2f} excedendo o valor de {salario * 30 / 100:.2f}')
 else:
     print("Empréstimo APROVADO.")
