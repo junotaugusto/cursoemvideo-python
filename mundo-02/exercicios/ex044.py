@@ -25,7 +25,20 @@ while True:
 
                 digitar_mensagem("Você escolheu pagar em cheque.\nAceitamos apenas cheques à vista com desconto de 10%.\n")
 
-                digitar_mensagem(f'Sua compra deu R${compra - (compra * (10 / 100)):.2f}\n')    
+                digitar_mensagem(f'Sua compra deu R${compra - (compra * (10 / 100)):.2f}\n')
+            elif pagamento == 3:
+                digitar_mensagem(f'Sua compra deu R${compra} \n')
+                digitar_mensagem("Qual a forma de pagamento no cartão?\n[1]Débito\n[2]Crédito em 2x.\n[3]Crédito em 3x ou mais.")
+                cartao = int(input("[1]Débito\n[2]Crédito em 2x.\n[3]Crédito em 3x ou mais."))
+                if cartao == 1:
+                    compra = compra - (compra * (5/100))
+                    print(f"Sua compra deu {compra} com 5% de desconto") 
+                elif cartao == 2:
+                       print(f"Sua compra deu {compra} em duas parcelas de {compra/2}.")
+                elif cartao == 3:
+                    print("Em quantas parcelas quer fazer?")
+                    parcelas = int(input("Em quantas parcelas quer fazer? Digite: "))
+                    digitar_mensagem(f'Sua compra deu R${compra:.2f}.\nVocê decidiu parcelar em {parcelas} vezes, por isso, o valor final da sua compra ficou em {compra + (compra *(20/100)):.2f} dividido em parcelas de {(compra + (compra * (20/100)))/parcelas:.2f}')
             break
     except ValueError:
         digitar_mensagem('Digite as opções com números válidos para continuar.')
